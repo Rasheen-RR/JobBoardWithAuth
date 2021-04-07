@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JobBoard.Models.Candidate>
+﻿@model IEnumerable<JobBoard.Models.Resume>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsActive)
+                @Html.DisplayNameFor(model => model.CoverLetter)
             </th>
             <th></th>
         </tr>
@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
+                @Html.DisplayFor(modelItem => item.CoverLetter)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Email">Edit</a> |

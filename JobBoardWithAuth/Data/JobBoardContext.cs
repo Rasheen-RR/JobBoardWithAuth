@@ -7,7 +7,6 @@ namespace JobBoard.Context
     {
 
         public DbSet<Candidate> Candidate { get; set; }
-        public DbSet<Company> Company { get; set; }
         public DbSet<Education> Education { get; set; }
         public DbSet<Employer> Employer { get; set; }
         public DbSet<Experience> Experience { get; set; }

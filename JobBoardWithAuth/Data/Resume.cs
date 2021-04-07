@@ -8,10 +8,9 @@ namespace JobBoard.Models
 {
     public class Resume
     {
-        [Key]
-        public Guid ResumeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Key]
         public string Email { get; set; }
         public ICollection<Experience> experience { get; set; }
         public string CoverLetter { get; set; }

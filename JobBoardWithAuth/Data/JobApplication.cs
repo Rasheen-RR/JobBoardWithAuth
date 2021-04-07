@@ -13,7 +13,7 @@ namespace JobBoard.Models
         public Guid JobApplicationId { get; set; }
         public Guid JobId { get; set; }
         public JobPosting jobPosting { get; set; }
-        public Guid applicantId { get; set; }
+        public string applicantId { get; set; }
         public Candidate candidate { get; set; }
 
     }

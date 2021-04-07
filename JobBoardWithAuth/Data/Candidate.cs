@@ -9,10 +9,9 @@ namespace JobBoard.Models
 {
     public class Candidate
     {
-        [Key]
-        public Guid CandidateId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Key]
         public string Email { get; set; }
         public bool IsActive { get; set; }
     }

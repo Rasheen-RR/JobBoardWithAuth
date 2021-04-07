@@ -16,9 +16,8 @@ namespace JobBoard.Models
         public int NotificationId { get; set; }
         public String Title { get; set; }
         public String Message { get; set; }
-        public Guid CompanyId { get; set; }
-        public Company Company { get; set; }
-        public Guid CandidateId { get; set; }
+        public String CompanyId { get; set; }
+        public String CandidateId { get; set; }
         public Candidate Candidate { get; set; }
     }
 }

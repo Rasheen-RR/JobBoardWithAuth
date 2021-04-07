@@ -12,7 +12,6 @@ namespace JobBoard.Models
 
         [Key]
         public Guid JobId { get; set; }
-        public Company company { get; set; }
         public String Title { get; set; }
         public String JobFunction { get; set; }
         public String Description { get; set; }
@@ -26,7 +25,7 @@ namespace JobBoard.Models
         public DateTime EndDate { get; set; }
         public Boolean IsPublic { get; set; }
         public Boolean IsDraft { get; set; }
-        public Guid OwnerId { get; set; }
+        public string OwnerId { get; set; }
 
     }
 }

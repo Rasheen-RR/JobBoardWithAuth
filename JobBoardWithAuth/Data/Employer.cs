@@ -9,7 +9,7 @@ namespace JobBoard.Models
     public class Employer
     {
         [Key]
-        public Guid CompanyId { get; set; }
+        public String Email { get; set; }
         public string CompanyName { get; set; }
         public bool isActive { get; set; } = false;
         public DateTime CreatedDate { get; set; }

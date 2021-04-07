@@ -1,0 +1,30 @@
+﻿@model JobBoard.Models.JobApplication
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>JobApplication</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JobId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JobId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.applicantId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.applicantId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.JobApplicationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
