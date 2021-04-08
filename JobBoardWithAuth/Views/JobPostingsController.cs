@@ -29,7 +29,22 @@ namespace JobBoardWithAuth.Views
             var userEmail = User.Identity.Name;
 
             if (user){
-                return View(await _context.JobPosting.ToListAsync());
+                var userApps = await _context.JobApplication.Where(m => m.applicantId == userEmail).ToListAsync();
+                var postings = await _context.JobPosting.ToListAsync();
+
+                foreach(JobPosting jobPosting in postings)
+                {
+                    foreach (JobApplication jobApplication in userApps)
+                    {
+                        if(jobApplication.JobId == jobPosting.JobId)
+                        {
+                            jobPosting.IsDraft = true;
+                        }
+                    }
+
+                }
+
+                return View(postings);
             }
             else if(userEmail != null)
             {
