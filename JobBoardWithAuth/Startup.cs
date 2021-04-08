@@ -80,7 +80,7 @@ namespace JobBoardWithAuth
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=JobPostings}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

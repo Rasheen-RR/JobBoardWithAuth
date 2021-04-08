@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using JobBoard.Context;
 using JobBoard.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JobBoardWithAuth.Views
 {
@@ -23,7 +24,21 @@ namespace JobBoardWithAuth.Views
         // GET: JobPostings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.JobPosting.ToListAsync());
+
+            var user = User.IsInRole("Candidate");
+            var userEmail = User.Identity.Name;
+
+            if (user){
+                return View(await _context.JobPosting.ToListAsync());
+            }
+            else if(userEmail != null)
+            {
+                return View(await _context.JobPosting.Where(m => m.OwnerId == userEmail).ToListAsync());
+            }else
+            {
+                return View(await _context.JobPosting.ToListAsync());
+            }
+
         }
 
         // GET: JobPostings/Details/5
@@ -155,6 +170,7 @@ namespace JobBoardWithAuth.Views
 
         [HttpPost, ActionName("Apply")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Apply(IFormCollection form)
         {
             if (ModelState.IsValid)
