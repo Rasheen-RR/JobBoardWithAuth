@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JobBoard.Context;
 using JobBoard.Models;
+using Microsoft.AspNet.Identity;
+
 
 namespace JobBoardWithAuth.Views
 {
@@ -22,7 +24,8 @@ namespace JobBoardWithAuth.Views
         // GET: JobApplications
         public async Task<IActionResult> Index()
         {
-            return View(await _context.JobApplication.ToListAsync());
+            var user = User.Identity.Name;
+            return View(await _context.JobApplication.Where(m => m.applicantId == user).ToListAsync());
         }
 
         // GET: JobApplications/Details/5

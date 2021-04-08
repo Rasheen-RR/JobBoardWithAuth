@@ -112,15 +112,15 @@
                     <div class="col-md-4">
                         <form asp-action="Apply">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="form-group" style="display=none">
-                                <label  class="control-label"></label>
-                                <input id="Email" name="Email" class="form-control" value="@User.Identity.Name" />
-                                <span  class="text-danger"></span>
-                            </div>
-                            <div class="form-group" style="display=none">
+                            <div class="form-group" style="display:none">
                                 <label class="control-label"></label>
-                                <input id="JobId" name="JobId"  class="form-control" value="@item.JobId" />
-                                <span  class="text-danger"></span>
+                                <input id="Email" name="Email" class="form-control" value="@User.Identity.Name" />
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label class="control-label"></label>
+                                <input id="JobId" name="JobId" class="form-control" value="@item.JobId" />
+                                <span class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Apply" class="btn btn-primary" />
@@ -128,8 +128,36 @@
                         </form>
                     </div>
                 </div>
+                <button class="share-button" type="button" title="Share this job">
+                    <span>Share</span>
+                </button>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+
+<script>
+    const shareButton = document.querySelector('.share-button');
+    const shareDialog = document.querySelector('.share-dialog');
+    const closeButton = document.querySelector('.close-button');
+
+    shareButton.addEventListener('click', event => {
+        if (navigator.share) {
+            navigator.share({
+                title: 'WebShare API Demo',
+                url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+            }).then(() => {
+                console.log('Thanks for sharing!');
+            })
+                .catch(console.error);
+        } else {
+            shareDialog.classList.add('is-open');
+        }
+    });
+
+    closeButton.addEventListener('click', event => {
+        shareDialog.classList.remove('is-open');
+    });
+</script>
