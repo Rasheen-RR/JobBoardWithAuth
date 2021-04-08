@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebEssentials.AspNetCore.Pwa;
 
 namespace JobBoardWithAuth
 {
@@ -49,6 +50,8 @@ namespace JobBoardWithAuth
                 options.AddPolicy("companyPolicy",
                     builder => builder.RequireRole("Company"));
             });
+
+    
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
