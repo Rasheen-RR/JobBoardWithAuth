@@ -13,15 +13,15 @@
 
 <div>
     <p>@Html.DisplayFor(modelItem => item.Title)</p>
-    <p>@Html.DisplayFor(modelItem => item.Description)</p>
     <p>@Html.DisplayFor(modelItem => item.JobFunction)</p>
+    <p>@Html.DisplayFor(modelItem => item.Description)</p>
     <p>@Html.DisplayFor(modelItem => item.Requirement)</p>
     <p>@Html.DisplayFor(modelItem => item.Responsibilities)</p>
     <p>@Html.DisplayFor(modelItem => item.Qualifications)</p>
     <p>  @Html.DisplayFor(modelItem => item.Skills)</p>
     <p> @Html.DisplayFor(modelItem => item.CreatedDate)</p>
     <p> @Html.DisplayFor(modelItem => item.Requirement)</p>
-    <p><span>@Html.DisplayFor(modelItem => item.StartDate)</span> - <span>@Html.DisplayFor(modelItem => item.EndDate)</span></p>
+    <p>Start Date<span>@Html.DisplayFor(modelItem => item.StartDate)</span></p>
 
     <a asp-action="Details" asp-route-id="@item.JobId">Details</a>
 
