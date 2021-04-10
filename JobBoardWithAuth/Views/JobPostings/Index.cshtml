@@ -9,133 +9,55 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JobFunction)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Requirement)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Responsibilities)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Qualifications)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Skills)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsPublic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsDraft)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OwnerId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobFunction)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Requirement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Responsibilities)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Qualifications)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Skills)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPublic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDraft)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OwnerId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.JobId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.JobId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.JobId">Delete</a>
 
+<div>
+    <p>@Html.DisplayFor(modelItem => item.Title)</p>
+    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+    <p>@Html.DisplayFor(modelItem => item.JobFunction)</p>
+    <p>@Html.DisplayFor(modelItem => item.Requirement)</p>
+    <p>@Html.DisplayFor(modelItem => item.Responsibilities)</p>
+    <p>@Html.DisplayFor(modelItem => item.Qualifications)</p>
+    <p>  @Html.DisplayFor(modelItem => item.Skills)</p>
+    <p> @Html.DisplayFor(modelItem => item.CreatedDate)</p>
+    <p> @Html.DisplayFor(modelItem => item.Requirement)</p>
+    <p><span>@Html.DisplayFor(modelItem => item.StartDate)</span> - <span>@Html.DisplayFor(modelItem => item.EndDate)</span></p>
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <form asp-action="Apply">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="form-group" style="display:none">
-                                <label class="control-label"></label>
-                                <input id="Email" name="Email" class="form-control" value="@User.Identity.Name" />
-                                <span class="text-danger"></span>
-                            </div>
-                            <div class="form-group" style="display:none">
-                                <label class="control-label"></label>
-                                <input id="JobId" name="JobId" class="form-control" value="@item.JobId" />
-                                <span class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <input disabled="@Html.ValueFor(modelItem => item.IsDraft)" type="submit" value="Apply" class="btn btn-primary" />
-                            </div>
-                        </form>
-                    </div>
+    <a asp-action="Details" asp-route-id="@item.JobId">Details</a>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Apply">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group" style="display:none">
+                    <label class="control-label"></label>
+                    <input id="Email" name="Email" class="form-control" value="@User.Identity.Name" />
+                    <span class="text-danger"></span>
                 </div>
-                <button class="share-button" type="button" title="Share this job">
-                    <span>Share</span>
-                </button>
-            </td>
-        </tr>
+                <div class="form-group" style="display:none">
+                    <label class="control-label"></label>
+                    <input id="JobId" name="JobId" class="form-control" value="@item.JobId" />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input disabled="@Html.ValueFor(modelItem => item.IsDraft)" type="submit" value="Apply" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <button class="share-button" type="button" title="Share this job">
+        <span>Share</span>
+    </button>
+</div>
+                
+                
+                
+                
+                
+
+
+              
 }
-    </tbody>
-</table>
 
 
 <script>

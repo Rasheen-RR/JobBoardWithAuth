@@ -19,6 +19,7 @@
                 './Resumes',
                 './JobPostings',
                 './Home'
+
             ])
         })
     )
@@ -29,7 +30,9 @@ self.addEventListener('install', swInstall);
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (cacheResponse) {
-            return cacheResponse
+            return cacheResponse || fetch(event.request)
+        }).catch(() => {
+            console.log("offline")
         })
     )
 })
