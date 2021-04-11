@@ -69,3 +69,16 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+.main-div{
+    display: grid;
+    grid-template-columns:repeat(1,1fr);
+    grid-gap:5rem
+}
+
+.sub-div {
+    border: 1px solid;
+    padding: 20px;
+    box-shadow: 0 20px 40px -14px rgb(0 0 0 / 25%);
+}
